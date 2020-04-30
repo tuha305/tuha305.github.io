@@ -8,6 +8,37 @@
 
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style type="text/css">
+body {
+    color: #fff;
+    background-color:#1c417a;
+    background-image: linear-gradient(0deg, #53a7d9 , #1474A4);
+    min-height: 2000px;
+}
+.appWrapper {
+    max-width: 600px;
+    margin: 50px auto;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3.5em;
+    line-height: 1.5em;
+}
+
+button {
+    font-weight: bold;
+    display: block;
+    margin: 50px auto;
+    width: 100px;
+    height: 50px;
+}
+ol {
+    font-size: 1.5em;
+    text-align: left;
+}
+</style>
   </head>
   <body>
     <div id="root"></div>
@@ -955,7 +986,13 @@ const text = `Đáp án đuổi hình bắt chữ câu số 962: Động Não
 Đáp án câu 2 đuổi hình bắt chữ: BA HOA
 Đáp án câu 1 đuổi hình bắt chữ: BÁO CÁO`;
 
-let result = text.split("\n");
+function transform(str) {
+    const split = str.split(':');
+    const index = split.length - 1;
+    return (split[index] || str).trim().toLowerCase();
+}
+
+let result = text.split("\n").map(str => transform(str));
 
 const getRandom = () => {
   const index = Math.floor(Math.random() * result.length);
@@ -964,22 +1001,23 @@ const getRandom = () => {
   return el;
 }
 
-
 function App(props) {
-  const [el, setEl] = React.useState(getRandom());
+  const [el, setEl] = React.useState('');
   const [list, setList] = React.useState([]);
 
   const change = () => {
-    setList([el,...list]);
+    if (el)
+        setList([el,...list]);
+
     setEl(getRandom());
   }
 
   return (
-    <div>
+    <div className="appWrapper">
     <h1>{el}</h1>
     <button onClick={change}>Change</button>
     <h3>List</h3>
-    <ol>
+    <ol reversed>
       {
         list.map((item, index) => <li key={index}>{item}</li>)
       }
