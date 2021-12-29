@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pictionary/static/css/main.a5ad35ad.css",
+    "main.js": "/pictionary/static/js/main.1cdbf7c1.js",
+    "static/js/787.280afaf3.chunk.js": "/pictionary/static/js/787.280afaf3.chunk.js",
+    "index.html": "/pictionary/index.html",
+    "main.a5ad35ad.css.map": "/pictionary/static/css/main.a5ad35ad.css.map",
+    "main.1cdbf7c1.js.map": "/pictionary/static/js/main.1cdbf7c1.js.map",
+    "787.280afaf3.chunk.js.map": "/pictionary/static/js/787.280afaf3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a5ad35ad.css",
+    "static/js/main.1cdbf7c1.js"
+  ]
+}
